@@ -318,7 +318,7 @@ body {
     color: var(--text-light);
     overflow: hidden;
     /* === ADICIONE A IMAGEM AQUI (substitua o caminho) === */
-    background-image: url('https://raw.githubusercontent.com/offondigital/terraplanagem-em-toledo-pr.webp');
+    background-image: url('https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
