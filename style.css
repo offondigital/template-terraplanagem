@@ -195,39 +195,45 @@ body {
     display: none;
 }
 
-.nav-desktop ul {
-    display: flex;
-    list-style: none;
-    gap: 2.5rem;
-}
+@media (min-width: 769px) {
+    .nav-desktop {
+        display: block;
+    }
+    
+    .nav-desktop ul {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+    }
 
-.nav-desktop a {
-    font-weight: 500;
-    font-size: 0.95rem;
-    color: var(--secondary);
-    text-decoration: none;
-    transition: var(--transition);
-    position: relative;
-    padding: 0.5rem 0;
-}
+    .nav-desktop a {
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: var(--secondary);
+        text-decoration: none;
+        transition: var(--transition);
+        position: relative;
+        padding: 0.5rem 0;
+    }
 
-.nav-desktop a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: var(--transition);
-}
+    .nav-desktop a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: var(--transition);
+    }
 
-.nav-desktop a:hover {
-    color: var(--primary);
-}
+    .nav-desktop a:hover {
+        color: var(--primary);
+    }
 
-.nav-desktop a:hover::after {
-    width: 100%;
+    .nav-desktop a:hover::after {
+        width: 100%;
+    }
 }
 
 /* Menu Mobile */
@@ -317,9 +323,8 @@ body {
     background: linear-gradient(135deg, var(--secondary) 0%, #2A2A2A 100%);
     color: var(--text-light);
     overflow: hidden;
-    /* === ADICIONE A IMAGEM AQUI (substitua o caminho) === */
     background-image: url('https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp');
-    background-size: cover;
+    background-size: 80% auto;
     background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
@@ -575,6 +580,11 @@ body {
     line-height: 1.6;
 }
 
+.service-card .btn {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
 /* ===== EQUIPAMENTOS ===== */
 .equipment {
     background: linear-gradient(135deg, var(--secondary) 0%, #2A2A2A 100%);
@@ -657,19 +667,6 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
-}
-
-.contact-info h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--secondary);
-    margin-bottom: 1.5rem;
-}
-
-.contact-info p {
-    color: var(--secondary-light);
-    margin-bottom: 2rem;
-    font-size: 1.125rem;
 }
 
 .contact-details {
@@ -846,8 +843,8 @@ body {
 }
 
 @media (max-width: 768px) {
-    .nav-desktop {
-        display: none;
+    .hero {
+        background-size: 100% auto; /* Ajuste para mobile */
     }
     
     .hero h1 {
@@ -889,13 +886,13 @@ body {
     .contact-map {
         height: 300px;
     }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 480px) {
+    .hero {
+        background-size: 100% auto; /* Ajuste para mobile pequeno */
+    }
+    
     .hero h1 {
         font-size: 2rem;
     }
