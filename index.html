@@ -200,88 +200,131 @@
 
         /* Hero Section */
         .hero {
-            padding: 120px 0 60px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            width: 100%;
             min-height: 100vh;
             display: flex;
             align-items: center;
+            background-image: url('https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp');
+            background-size: 80% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 100px 0;
+            margin-top: 80px;
+        }
+
+        /* Gradiente sobre a imagem */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.9) 0%,
+                rgba(0, 0, 0, 0.7) 50%,
+                rgba(0, 0, 0, 0.4) 100%
+            );
+            z-index: 1;
         }
 
         .hero-content {
-            text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            margin-left: 0;
+            margin-right: auto;
         }
 
         .hero-badge {
             display: inline-block;
             padding: 8px 16px;
-            background: rgba(245, 126, 24, 0.1);
+            background: rgba(245, 126, 24, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(245, 126, 24, 0.5);
             color: #F57E18;
             border-radius: 100px;
             font-weight: 600;
             font-size: 0.875rem;
             margin-bottom: 20px;
+            letter-spacing: 0.5px;
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero h1 span {
             color: #F57E18;
+            position: relative;
+            display: inline-block;
         }
 
         .hero p {
             font-size: clamp(1rem, 3vw, 1.25rem);
-            color: #4a5568;
+            color: rgba(255, 255, 255, 0.9);
             max-width: 600px;
-            margin: 0 auto 30px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.6;
         }
 
         .hero-cta {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         @media (min-width: 640px) {
             .hero-cta {
                 flex-direction: row;
-                justify-content: center;
             }
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 30px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             text-align: center;
+            font-size: 1rem;
         }
 
         .btn-primary {
             background: #F57E18;
             color: white;
+            border: 2px solid #F57E18;
         }
 
         .btn-primary:hover {
             background: #e06b0c;
+            border-color: #e06b0c;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 126, 24, 0.4);
         }
 
         .btn-outline {
-            border: 2px solid #F57E18;
-            color: #F57E18;
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            backdrop-filter: blur(5px);
         }
 
         .btn-outline:hover {
-            background: #F57E18;
-            color: white;
+            background: white;
+            color: #1D1D1D;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
         }
 
         .hero-stats {
@@ -289,18 +332,24 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             max-width: 500px;
-            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: left;
         }
 
         .stat-number {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 800;
             color: #F57E18;
+            line-height: 1.2;
         }
 
         .stat-label {
-            font-size: 0.875rem;
-            color: #4a5568;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Sections */
@@ -418,9 +467,30 @@
             margin-bottom: 20px;
         }
 
+        .service-image {
+            margin-bottom: 20px;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
         .service-card h3 {
             margin-bottom: 15px;
             font-size: 1.25rem;
+        }
+
+        .service-card p {
+            margin-bottom: 20px;
+            color: #4a5568;
+        }
+
+        .service-card .btn {
+            width: 100%;
+            margin-top: 10px;
         }
 
         /* Equipment */
@@ -631,14 +701,35 @@
             transform: scale(1.1);
         }
 
-        /* Ajustes para mobile */
+        /* Media Queries */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
+            .hero {
+                background-size: 100% auto;
+                padding: 80px 0;
             }
             
-            .hero {
-                padding: 100px 0 40px;
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .stat-item {
+                text-align: left;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .stat-number {
+                min-width: 60px;
+            }
+            
+            .container {
+                padding: 0 15px;
             }
             
             .section {
@@ -651,6 +742,38 @@
             
             .equipment-card {
                 padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                background-size: 100% auto;
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
             }
         }
     </style>
@@ -695,10 +818,9 @@
     <main>
         <!-- HERO -->
         <section class="hero" id="inicio">
-            <div class="hero-bg-pattern"></div>
             <div class="container hero-content">
                 <span class="hero-badge">Excelência em Terraplanagem</span>
-                <h1>Terraplanagem </span> em Toledo</h1>
+                <h1>Terraplanagem <span>em Toledo</span></h1>
                 <p>Mais de 15 anos de experiência em terraplanagem, com soluções completas para sua propriedade rural ou construção em Toledo e região.</p>
                 <div class="hero-cta">
                     <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
@@ -721,499 +843,6 @@
             </div>
         </section>
 
-        <style>
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.5;
-    color: #1D1D1D;
-    overflow-x: hidden;
-    width: 100%;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* ===== HEADER COM MENU SANDWÍCHE ===== */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-mark {
-    width: 40px;
-    height: 40px;
-    background: #F57E18;
-    border-radius: 8px;
-}
-
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.logo-text span {
-    color: #F57E18;
-    font-weight: 400;
-    margin-left: 5px;
-}
-
-/* Menu Desktop */
-.nav-desktop {
-    display: none;
-}
-
-@media (min-width: 769px) {
-    .nav-desktop {
-        display: block;
-    }
-    
-    .nav-desktop ul {
-        display: flex;
-        list-style: none;
-        gap: 30px;
-    }
-
-    .nav-desktop a {
-        text-decoration: none;
-        color: #1D1D1D;
-        font-weight: 500;
-        transition: color 0.3s;
-    }
-
-    .nav-desktop a:hover {
-        color: #F57E18;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-}
-
-/* Botão Menu Sanduíche */
-.menu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background: #1D1D1D;
-    transition: all 0.3s;
-}
-
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* Menu Mobile */
-.nav-mobile {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: white;
-    transition: left 0.3s ease;
-    z-index: 999;
-    overflow-y: auto;
-}
-
-.nav-mobile.active {
-    left: 0;
-}
-
-.nav-mobile ul {
-    list-style: none;
-    padding: 20px;
-}
-
-.nav-mobile li {
-    margin-bottom: 20px;
-}
-
-.nav-mobile a {
-    text-decoration: none;
-    color: #1D1D1D;
-    font-size: 1.2rem;
-    font-weight: 500;
-    display: block;
-    padding: 10px;
-    border-radius: 8px;
-    transition: background 0.3s;
-}
-
-.nav-mobile a:hover {
-    background: #f5f5f5;
-    color: #F57E18;
-}
-
-/* ===== HERO SECTION ===== */
-.hero {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    /* ===== LINHA PARA COLOCAR A IMAGEM ===== */
-    /* Substitua a URL abaixo pelo endereço da sua imagem */
-    background-image: url('https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    padding: 100px 0;
-    margin-top: 80px; /* Compensa o header fixo */
-}
-
-/* Gradiente sobre a imagem */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.9) 0%,
-        rgba(0, 0, 0, 0.7) 50%,
-        rgba(0, 0, 0, 0.4) 100%
-    );
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 650px;
-    margin-left: 0;
-    margin-right: auto;
-}
-
-.hero-badge {
-    display: inline-block;
-    padding: 8px 16px;
-    background: rgba(245, 126, 24, 0.2);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(245, 126, 24, 0.5);
-    color: #F57E18;
-    border-radius: 100px;
-    font-weight: 600;
-    font-size: 0.875rem;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-}
-
-.hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero h1 span {
-    color: #F57E18;
-    position: relative;
-    display: inline-block;
-}
-
-.hero h1 span::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background: rgba(245, 126, 24, 0.3);
-    z-index: -1;
-}
-
-.hero p {
-    font-size: clamp(1rem, 3vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    line-height: 1.6;
-}
-
-.hero-cta {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 50px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 14px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-    text-align: center;
-    font-size: 1rem;
-}
-
-.btn-primary {
-    background: #F57E18;
-    color: white;
-    border: 2px solid #F57E18;
-}
-
-.btn-primary:hover {
-    background: #e06b0c;
-    border-color: #e06b0c;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(245, 126, 24, 0.4);
-}
-
-.btn-outline {
-    border: 2px solid white;
-    color: white;
-    background: transparent;
-    backdrop-filter: blur(5px);
-}
-
-.btn-outline:hover {
-    background: white;
-    color: #1D1D1D;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-}
-
-.hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 500px;
-}
-
-.stat-item {
-    text-align: left;
-}
-
-.stat-number {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    font-weight: 800;
-    color: #F57E18;
-    line-height: 1.2;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Tablet */
-@media (min-width: 640px) {
-    .hero-cta {
-        flex-direction: row;
-    }
-    
-    .btn {
-        min-width: 200px;
-    }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .hero {
-        min-height: 90vh;
-        padding: 80px 0;
-        margin-top: 80px;
-        background-position: 70% center;
-    }
-    
-    .hero::before {
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.9) 0%,
-            rgba(0, 0, 0, 0.7) 100%
-        );
-    }
-    
-    .hero-content {
-        max-width: 100%;
-        text-align: left;
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-    }
-    
-    .hero-stats {
-        gap: 10px;
-    }
-    
-    .stat-number {
-        font-size: 1.5rem;
-    }
-    
-    .stat-label {
-        font-size: 0.75rem;
-    }
-}
-
-/* Mobile pequeno */
-@media (max-width: 480px) {
-    .hero {
-        min-height: 85vh;
-        padding: 60px 0;
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-stats {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .stat-item {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .stat-number {
-        min-width: 60px;
-    }
-}
-</style>
-
-<!-- HEADER COM MENU SANDWÍCHE -->
-<header class="header" id="header">
-    <div class="container header-content">
-        <div class="logo">
-            <div class="logo-mark"></div>
-            <div class="logo-text">HS<span>Terraplanagem</span></div>
-        </div>
-
-        <nav class="nav-desktop">
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#equipamentos">Equipamentos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-
-        <button class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
-    <nav class="nav-mobile" id="mobileMenu">
-        <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#equipamentos">Equipamentos</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav>
-</header>
-
-<!-- FONT AWESOME -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<!-- GOOGLE FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- JAVASCRIPT DO MENU -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const header = document.getElementById('header');
-    
-    if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            this.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
-
-        // Fechar menu ao clicar em um link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Fechar menu ao clicar fora
-        document.addEventListener('click', function(e) {
-            if (!header.contains(e.target) && mobileMenu.classList.contains('active')) {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
-});
-</script>
-
         <!-- SOBRE -->
         <section class="section about" id="sobre">
             <div class="container about-grid">
@@ -1232,11 +861,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="feature-item">
                             <div class="feature-icon">
                                 <i class="fas fa-briefcase"></i>
-                                </div>
+                            </div>
                             <h4>Profissionalismo</h4>
-                            <p>O combinando nunca sairá caro</p>
+                            <p>Compromisso com a qualidade em cada projeto</p>
                         </div>
-                         <div class="feature-item">
+                        <div class="feature-item">
                             <div class="feature-icon">
                                 <i class="fas fa-cogs"></i>
                             </div>
@@ -1268,80 +897,110 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
 
                 <div class="services-grid">
+                    <!-- Destacamento de Eucalipto -->
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-tree"></i>
                         </div>
+                        <div class="service-image">
+                            <img src="imagens/servicos/destacamento-eucalipto.webp" alt="Destacamento de Eucalipto">
+                        </div>
                         <h3>Destacamento de Eucalipto</h3>
                         <p>Remoção profissional de eucaliptos com maquinário especializado, incluindo limpeza completa de tocos e raízes.</p>
-                    <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Destacamento%20de%20Eucalipto" class="btn btn-primary service-btn" target="_blank" style="margin-top: 20px; display: inline-block; width: 100%; text-align: center;">
-                    <i class="fab fa-whatsapp"></i> Solicitar orçamento
-                </a>
+                        <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Destacamento%20de%20Eucalipto" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Solicitar orçamento
+                        </a>
                     </div>
 
+                    <!-- Curva de Níveis -->
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-mountain"></i>
                         </div>
+                        <div class="service-image">
+                            <img src="imagens/servicos/curva-niveis.webp" alt="Curva de Níveis">
+                        </div>
                         <h3>Curva de Níveis</h3>
                         <p>Implementação de curvas de nível para conservação do solo, prevenção de erosões e manejo de águas pluviais.</p>
-                    <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Curva%20de%20Níveis" class="btn btn-primary service-btn" target="_blank" style="margin-top: 20px; display: inline-block; width: 100%; text-align: center;">
-                    <i class="fab fa-whatsapp"></i> Solicitar orçamento
-                </a>
+                        <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Curva%20de%20Níveis" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Solicitar orçamento
+                        </a>
                     </div>
 
+                    <!-- Abertura de Açudes -->
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-water"></i>
                         </div>
+                        <div class="service-image">
+                            <img src="imagens/servicos/abertura-acudes.webp" alt="Abertura de Açudes">
+                        </div>
                         <h3>Abertura de Açudes</h3>
                         <p>Construção de reservatórios de água para irrigação, dessedentação animal e armazenamento.</p>
-                    <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Abertura%20de%20Açudes" class="btn btn-primary service-btn" target="_blank" style="margin-top: 20px; display: inline-block; width: 100%; text-align: center;">
-                    <i class="fab fa-whatsapp"></i> Solicitar orçamento
-                </a>
+                        <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Abertura%20de%20Açudes" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Solicitar orçamento
+                        </a>
                     </div>
 
+                    <!-- Estradas Rurais -->
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-road"></i>
                         </div>
+                        <div class="service-image">
+                            <img src="imagens/servicos/estradas-rurais.webp" alt="Estradas Rurais">
+                        </div>
                         <h3>Estradas Rurais</h3>
                         <p>Abertura, manutenção e conservação de estradas vicinais e rurais com sistema de drenagem completo.</p>
-                    <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Estradas%20Rurais" class="btn btn-primary service-btn" target="_blank" style="margin-top: 20px; display: inline-block; width: 100%; text-align: center;">
-                    <i class="fab fa-whatsapp"></i> Solicitar orçamento
-                </a>
+                        <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Estradas%20Rurais" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Solicitar orçamento
+                        </a>
                     </div>
 
+                    <!-- Planejamento para Aviário e Chiqueirão -->
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-piggy-bank"></i>
                         </div>
+                        <div class="service-image">
+                            <img src="imagens/servicos/aviario-chiqueirao.webp" alt="Planejamento para Aviário e Chiqueirão">
+                        </div>
                         <h3>Planejamento para Aviário e Chiqueirão</h3>
                         <p>Preparo de terreno para construções avícolas e suinícolas, incluindo nivelamento e sistemas de manejo.</p>
-                    <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Planejamento%20para%20Aviário%20e%20Chiqueirão" class="btn btn-primary service-btn" target="_blank" style="margin-top: 20px; display: inline-block; width: 100%; text-align: center;">
-                    <i class="fab fa-whatsapp"></i> Solicitar orçamento
-                </a>
+                        <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Planejamento%20para%20Aviário%20e%20Chiqueirão" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Solicitar orçamento
+                        </a>
                     </div>
 
+                    <!-- Serviços Complementares -->
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-hard-hat"></i>
                         </div>
+                        <div class="service-image">
+                            <img src="imagens/servicos/servicos-complementares.webp" alt="Serviços Complementares">
+                        </div>
                         <h3>Serviços Complementares</h3>
                         <p>Aterramento, nivelamento, perfuração para piscinas e outras soluções em terraplanagem.</p>
-                    <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Serviços%20Complementares" class="btn btn-primary service-btn" target="_blank" style="margin-top: 20px; display: inline-block; width: 100%; text-align: center;">
-                    <i class="fab fa-whatsapp"></i> Solicitar orçamento
-                </a>
+                        <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Serviços%20Complementares" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Solicitar orçamento
+                        </a>
                     </div>
-                  <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-mountain-sun"></i>
-                </div>
-                <h3>Nivelamento de Morro</h3>
-                <p>Serviço especializado de corte e aterro para nivelamento de terrenos acidentados, preparando sua área para construção ou plantio.</p>
-                <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Nivelamento%20de%20Morro" class="btn btn-primary service-btn" target="_blank" style="margin-top: 20px; display: inline-block; width: 100%; text-align: center;">
-                    <i class="fab fa-whatsapp"></i> Solicitar orçamento
-                </a>  
+
+                    <!-- Nivelamento de Morro -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mountain-sun"></i>
+                        </div>
+                        <div class="service-image">
+                            <img src="imagens/servicos/nivelamento-morro.webp" alt="Nivelamento de Morro">
+                        </div>
+                        <h3>Nivelamento de Morro</h3>
+                        <p>Serviço especializado de corte e aterro para nivelamento de terrenos acidentados, preparando sua área para construção ou plantio.</p>
+                        <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Nivelamento%20de%20Morro" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Solicitar orçamento
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1418,8 +1077,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         
                         <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento" class="btn btn-primary" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Solicitar orçamento
+                            <i class="fab fa-whatsapp"></i> Solicitar orçamento
                         </a>
                     </div>
 
@@ -1468,7 +1126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JavaScript Otimizado -->
+    <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.getElementById('menuToggle');
@@ -1483,7 +1141,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
                 });
 
-                // Fechar menu ao clicar em um link
                 const mobileLinks = mobileMenu.querySelectorAll('a');
                 mobileLinks.forEach(link => {
                     link.addEventListener('click', function() {
@@ -1493,7 +1150,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 });
 
-                // Fechar menu ao clicar fora
                 document.addEventListener('click', function(e) {
                     if (!header.contains(e.target) && mobileMenu.classList.contains('active')) {
                         menuToggle.classList.remove('active');
@@ -1503,7 +1159,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
 
-            // Smooth scroll para links internos
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -1517,7 +1172,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
 
-            // Header scroll effect
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
                     header.style.background = 'rgba(255, 255, 255, 0.95)';
