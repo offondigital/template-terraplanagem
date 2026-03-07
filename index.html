@@ -721,6 +721,499 @@
             </div>
         </section>
 
+        <style>
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    color: #1D1D1D;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== HEADER COM MENU SANDWÍCHE ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-mark {
+    width: 40px;
+    height: 40px;
+    background: #F57E18;
+    border-radius: 8px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo-text span {
+    color: #F57E18;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+/* Menu Desktop */
+.nav-desktop {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .nav-desktop {
+        display: block;
+    }
+    
+    .nav-desktop ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+
+    .nav-desktop a {
+        text-decoration: none;
+        color: #1D1D1D;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .nav-desktop a:hover {
+        color: #F57E18;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* Botão Menu Sanduíche */
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #1D1D1D;
+    transition: all 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Menu Mobile */
+.nav-mobile {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: white;
+    transition: left 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.nav-mobile.active {
+    left: 0;
+}
+
+.nav-mobile ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.nav-mobile li {
+    margin-bottom: 20px;
+}
+
+.nav-mobile a {
+    text-decoration: none;
+    color: #1D1D1D;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.nav-mobile a:hover {
+    background: #f5f5f5;
+    color: #F57E18;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* ===== LINHA PARA COLOCAR A IMAGEM ===== */
+    /* Substitua a URL abaixo pelo endereço da sua imagem */
+    background-image: url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 100px 0;
+    margin-top: 80px; /* Compensa o header fixo */
+}
+
+/* Gradiente sobre a imagem */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(245, 126, 24, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(245, 126, 24, 0.5);
+    color: #F57E18;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 span {
+    color: #F57E18;
+    position: relative;
+    display: inline-block;
+}
+
+.hero h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: rgba(245, 126, 24, 0.3);
+    z-index: -1;
+}
+
+.hero p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+}
+
+.hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: #F57E18;
+    color: white;
+    border: 2px solid #F57E18;
+}
+
+.btn-primary:hover {
+    background: #e06b0c;
+    border-color: #e06b0c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 126, 24, 0.4);
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    backdrop-filter: blur(5px);
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #1D1D1D;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 500px;
+}
+
+.stat-item {
+    text-align: left;
+}
+
+.stat-number {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: #F57E18;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+    .hero-cta {
+        flex-direction: row;
+    }
+    
+    .btn {
+        min-width: 200px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 90vh;
+        padding: 80px 0;
+        margin-top: 80px;
+        background-position: 70% center;
+    }
+    
+    .hero::before {
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        text-align: left;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-stats {
+        gap: 10px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 85vh;
+        padding: 60px 0;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .stat-number {
+        min-width: 60px;
+    }
+}
+</style>
+
+<!-- HEADER COM MENU SANDWÍCHE -->
+<header class="header" id="header">
+    <div class="container header-content">
+        <div class="logo">
+            <div class="logo-mark"></div>
+            <div class="logo-text">HS<span>Terraplagem</span></div>
+        </div>
+
+        <nav class="nav-desktop">
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#equipamentos">Equipamentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <nav class="nav-mobile" id="mobileMenu">
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#equipamentos">Equipamentos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- JAVASCRIPT DO MENU -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const header = document.getElementById('header');
+    
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Fechar menu ao clicar em um link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', function(e) {
+            if (!header.contains(e.target) && mobileMenu.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+});
+</script>
+
         <!-- SOBRE -->
         <section class="section about" id="sobre">
             <div class="container about-grid">
