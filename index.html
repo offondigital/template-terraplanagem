@@ -1,4 +1,6 @@
-<html lang="pt-BR"><head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>HS Terraplanagem | Engenharia de Terraplanagem em Toledo-PR</title>
@@ -18,8 +20,8 @@
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -196,7 +198,7 @@
             color: #F57E18;
         }
 
-        /* Hero Section */
+        /* Hero Section - CORRIGIDO */
         .hero {
             position: relative;
             width: 100%;
@@ -205,14 +207,14 @@
             align-items: center;
             background-image: url('https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp');
             background-size: cover;
-            background-position: cover;
+            background-position: center 30%;
             background-repeat: no-repeat;
             color: white;
             padding: 100px 0;
-            margin-top: 100px;
+            margin-top: 80px;
         }
 
-        /* Gradiente sobre a imagem */
+        /* Gradiente sobre a imagem - ajustado para mobile */
         .hero::before {
             content: '';
             position: absolute;
@@ -224,7 +226,7 @@
                 to right,
                 rgba(0, 0, 0, 0.9) 0%,
                 rgba(0, 0, 0, 0.7) 50%,
-                rgba(0, 0, 0, 0.4) 100%
+                rgba(0, 0, 0, 0.5) 100%
             );
             z-index: 1;
         }
@@ -699,11 +701,12 @@
             transform: scale(1.1);
         }
 
-        /* Media Queries */
+        /* Media Queries - CORRIGIDAS para hero */
         @media (max-width: 768px) {
             .hero {
-                background-size: 100% auto;
-                padding: 80px 0;
+                min-height: 90vh;
+                background-position: 65% center;
+                padding: 60px 0;
             }
             
             .hero h1 {
@@ -745,8 +748,9 @@
 
         @media (max-width: 480px) {
             .hero {
-                background-size: 100% auto;
-                padding: 60px 0;
+                min-height: 85vh;
+                background-position: 70% center;
+                padding: 50px 0;
             }
             
             .hero h1 {
@@ -770,13 +774,42 @@
                 gap: 15px;
             }
             
+            .stat-item {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            
             .section-title {
                 font-size: 1.75rem;
             }
         }
+
+        /* Suporte para telas muito pequenas */
+        @media (max-width: 360px) {
+            .hero {
+                min-height: 80vh;
+                background-position: 75% center;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Orientação paisagem em mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                min-height: 120vh;
+                padding: 80px 0;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
     </style>
 </head>
-<body style="">
+<body>
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="container header-content">
@@ -814,7 +847,7 @@
     </header>
 
     <main>
-        <!-- HERO -->
+        <!-- HERO - CORRIGIDO -->
         <section class="hero" id="inicio">
             <div class="container hero-content">
                 <span class="hero-badge">Excelência em Terraplanagem</span>
@@ -880,7 +913,8 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23F57E18' opacity='0.1'/%3E%3Ctext x='300' y='200' font-family='Inter' font-size='24' fill='%231D1D1D' text-anchor='middle'%3EHS Terraplanagem%3C/text%3E%3C/svg%3E" alt="HS Terraplanagem em ação">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23F57E18' opacity='0.1'/%3E%3Ctext x='300' y='200' font-family='Inter' font-size='24' fill='%231D1D1D' text-anchor='middle'%3EHS Terraplanagem%3C/text%3E%3C/svg%3E"
+                           alt="HS Terraplanagem em ação">
                 </div>
             </div>
         </section>
@@ -1074,12 +1108,14 @@
                         </div>
                         
                         <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento" class="btn btn-primary" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Solicitar orçamento
+                            <i class="fab fa-whatsapp"></i> Solicitar orçamento via WhatsApp
                         </a>
                     </div>
 
                     <div class="contact-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115759.28563421264!2d-53.81940572265626!3d-24.7245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f3b4e8b0e8e0e1%3A0x0!2zMjTCsDQzJzI4LjIiUyA1M8KwNDQnMzUuNSJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115759.28563421264!2d-53.81940572265626!3d-24.7245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f3b4e8b0e8e0e1%3A0x0!2zMjTCsDQzJzI4LjIiUyA1M8KwNDQnMzUuNSJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+                                allowfullscreen="" 
+                                loading="lazy">
                         </iframe>
                     </div>
                 </div>
@@ -1109,13 +1145,15 @@
             </div>
             
             <div class="footer-bottom">
-                <p>© 2026 HS Terraplanagem. Todos os direitos reservados.</p>
+                <p>&copy; 2026 HS Terraplanagem. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/555496968164?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20informações" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/555496968164?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20informações" 
+       class="whatsapp-float" 
+       target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1176,6 +1214,5 @@
             });
         });
     </script>
-
-
-</body></html>
+</body>
+</html>
