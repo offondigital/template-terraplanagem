@@ -37,7 +37,7 @@
         .nav-mobile li{margin-bottom:15px;}
         .nav-mobile a{text-decoration:none;color:#1D1D1D;font-size:1.2rem;display:block;padding:10px;}
         
-        /* HERO - LCP INSTANTÂNEO */
+        /* HERO - COM BACKGROUND COLOR FALLBACK */
         .hero{position:relative;min-height:100vh;display:flex;align-items:center;margin-top:70px;color:#fff;padding:60px 0;background-color:#1a1a1a;}
         .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
         .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,rgba(0,0,0,0.95)0%,rgba(0,0,0,0.6)100%);z-index:1;}
@@ -153,16 +153,18 @@
     </header>
 
     <main>
-        <!-- HERO COM IMAGEM INLINE BASE64 (LCP INSTANTÂNEO - 0ms) -->
+        <!-- HERO COM BACKGROUND IMAGE CORRETO -->
         <section class="hero" id="inicio">
-            <!-- IMAGEM BASE64 - CARREGA JUNTO COM O HTML (0ms DE ATRASO) -->
-            <img class="hero-bg" 
-                 src="data:image/webp;base64,UklGRlIAAABXRUJQVlA4WAoAAAAQAAAAnwAAAH8AQUxQSAUAAAABByCwbdu2bdvIts1/tm3btm3btm3btm3btm0QKiX+A4AHUkhEQfR/JIn8jxQJIP6PJJE/BwBQOCBUAA=="
-                 alt="HS Terraplanagem" 
-                 width="1200" 
-                 height="800" 
-                 fetchpriority="high" 
-                 decoding="sync">
+            <!-- BACKGROUND IMAGE VIA CSS (CARREGAMENTO OTIMIZADO) -->
+            <style>
+                .hero-bg {
+                    background-image: url('https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+            </style>
+            <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
             <div class="container hero-content">
                 <span class="hero-badge">Excelência em Terraplanagem</span>
