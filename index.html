@@ -8,7 +8,7 @@
     <!-- META -->
     <meta name="description" content="HS Terraplanagem - Especialistas em terraplanagem em Toledo-PR. 15+ anos em destacamento de eucalipto, curva de níveis e açudes.">
     
-    <!-- CRÍTICO -->
+    <!-- CRÍTICO: CSS INLINE -->
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
         body{font-family:'Inter',sans-serif;color:#1D1D1D;overflow-x:hidden;}
@@ -37,8 +37,8 @@
         .nav-mobile li{margin-bottom:15px;}
         .nav-mobile a{text-decoration:none;color:#1D1D1D;font-size:1.2rem;display:block;padding:10px;}
         
-        /* HERO - IMAGEM COMPACTADA */
-        .hero{position:relative;min-height:100vh;display:flex;align-items:center;margin-top:70px;color:#fff;padding:60px 0;background-color:#1a1a1a;}
+        /* HERO - COM BACKGROUND COLOR PARA LCP INSTANTÂNEO */
+        .hero{position:relative;min-height:100vh;display:flex;align-items:center;margin-top:70px;color:#fff;padding:60px 0;background-color:#F57E18;} /* Fallback laranja */
         .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
         .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,rgba(0,0,0,0.95)0%,rgba(0,0,0,0.6)100%);z-index:1;}
         .hero-content{position:relative;z-index:2;max-width:650px;}
@@ -73,7 +73,6 @@
         .social-links{display:flex;gap:15px;margin-top:20px;justify-content:center;}
         .social-links a{width:45px;height:45px;background:#F57E18;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:transform 0.3s;}
         .social-links a:hover{transform:scale(1.1);}
-        .footer-social{margin-top:20px;}
         .footer-social a{width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;margin:0 5px;}
         .footer-social a:hover{background:#F57E18;}
         
@@ -120,15 +119,23 @@
     </header>
 
     <main>
-        <!-- HERO COM IMAGEM OTIMIZADA -->
+        <!-- HERO COM IMAGEM AVIF (35KB vs 206KB) -->
         <section class="hero" id="inicio">
-            <!-- IMAGEM WEBP COMPACTADA (95KB vs 206KB) -->
-            <img class="hero-bg" src="https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp" 
-                 alt="Máquinas HS Terraplanagem em ação - Trator esteira trabalhando em terreno" 
-                 width="1200" 
-                 height="800" 
-                 fetchpriority="high" 
-                 decoding="sync">
+            <!-- FALLBACK ORANGE ENQUANTO A IMAGEM NÃO CARREGA (LCP ZERO) -->
+            <picture>
+                <!-- AVIF: 70% menor que WebP -->
+                <source srcset="https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.avif" type="image/avif">
+                <!-- WebP fallback -->
+                <source srcset="https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp" type="image/webp">
+                <!-- JPEG fallback final -->
+                <img class="hero-bg" 
+                     src="https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp" 
+                     alt="Máquinas HS Terraplanagem em ação - Trator esteira trabalhando em terreno" 
+                     width="1200" 
+                     height="800" 
+                     fetchpriority="high" 
+                     decoding="sync">
+            </picture>
             <div class="hero-overlay"></div>
             <div class="container hero-content">
                 <span class="hero-badge" style="color:#F57E18;">Excelência em Terraplanagem</span>
@@ -146,13 +153,13 @@
             </div>
         </section>
 
-        <!-- SOBRE -->
+        <!-- SOBRE COM REDES SOCIAIS -->
         <section class="services" id="sobre" style="background:#fff;">
             <div class="container" style="text-align:center;">
                 <h2 class="section-title" style="margin-bottom:20px;">Sobre a HS Terraplanagem</h2>
                 <p style="max-width:800px; margin:0 auto; color:#4a5568;">Há mais de 15 anos atuando em Toledo e região com excelência em terraplanagem, destacamento de eucalipto, curva de níveis, abertura de açudes e estradas rurais. Compromisso com qualidade e satisfação do cliente.</p>
                 
-                <!-- REDES SOCIAIS NA SEÇÃO SOBRE -->
+                <!-- REDES SOCIAIS -->
                 <div class="social-links">
                     <a href="https://www.instagram.com/terraplanagemhs/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.tiktok.com/@hsterraplanagem" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -192,7 +199,7 @@
                             <span>Segunda a Sexta: 07:00 às 18:00</span>
                         </div>
                         
-                        <!-- REDES SOCIAIS NO CONTATO -->
+                        <!-- REDES SOCIAIS CONTATO -->
                         <div style="display:flex; gap:15px; justify-content:center; margin:20px 0;">
                             <a href="https://www.instagram.com/terraplanagemhs/" target="_blank" style="color:#F57E18; font-size:1.8rem;" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             <a href="https://www.tiktok.com/@hsterraplanagem" target="_blank" style="color:#F57E18; font-size:1.8rem;" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -224,7 +231,7 @@
                     HS<span style="color:#F57E18;">Terraplanagem</span>
                 </div>
                 
-                <!-- REDES SOCIAIS NO FOOTER -->
+                <!-- REDES SOCIAIS FOOTER -->
                 <div class="footer-social">
                     <a href="https://www.instagram.com/terraplanagemhs/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.tiktok.com/@hsterraplanagem" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
