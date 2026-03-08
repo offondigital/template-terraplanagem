@@ -195,49 +195,39 @@ body {
     display: none;
 }
 
-@media (min-width: 769px) {
-    .nav-desktop {
-        display: block;
-    }
-    
-    .nav-desktop ul {
-        display: flex;
-        list-style: none;
-        gap: 2.5rem;
-    }
+.nav-desktop ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
 
-    .nav-desktop a {
-        font-weight: 500;
-        font-size: 0.95rem;
-        color: var(--secondary);
-        text-decoration: none;
-        transition: var(--transition);
-        position: relative;
-        padding: 0.5rem 0;
-    }
+.nav-desktop a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--secondary);
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0;
+}
 
-    .nav-desktop a::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary);
-        transition: var(--transition);
-    }
+.nav-desktop a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition);
+}
 
-    .nav-desktop a:hover {
-        color: var(--primary);
-    }
+.nav-desktop a:hover {
+    color: var(--primary);
+}
 
-    .nav-desktop a:hover::after {
-        width: 100%;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
+.nav-desktop a:hover::after {
+    width: 100%;
 }
 
 /* Menu Mobile */
@@ -327,6 +317,12 @@ body {
     background: linear-gradient(135deg, var(--secondary) 0%, #2A2A2A 100%);
     color: var(--text-light);
     overflow: hidden;
+    /* === ADICIONE A IMAGEM AQUI (substitua o caminho) === */
+    background-image: url('https://github.com/offondigital/terraplanagem-imagens/blob/main/terraplanagem-em-toledo-pr.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
 }
 
 .hero-bg-pattern {
@@ -489,7 +485,6 @@ body {
 
 .about-image img {
     width: 100%;
-    height: auto;
     border-radius: 24px;
     box-shadow: var(--shadow-lg);
 }
@@ -580,22 +575,6 @@ body {
     line-height: 1.6;
 }
 
-.service-card .btn {
-    width: 100%;
-    margin-top: 1.5rem;
-}
-
-.service-image {
-    margin-bottom: 1.5rem;
-}
-
-.service-image img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
 /* ===== EQUIPAMENTOS ===== */
 .equipment {
     background: linear-gradient(135deg, var(--secondary) 0%, #2A2A2A 100%);
@@ -678,6 +657,19 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
+}
+
+.contact-info h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    color: var(--secondary-light);
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
 }
 
 .contact-details {
@@ -896,6 +888,10 @@ body {
     
     .contact-map {
         height: 300px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
     }
 }
 
