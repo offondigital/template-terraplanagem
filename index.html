@@ -37,7 +37,7 @@
         .nav-mobile li{margin-bottom:15px;}
         .nav-mobile a{text-decoration:none;color:#1D1D1D;font-size:1.2rem;display:block;padding:10px;}
         
-        /* HERO - COM BACKGROUND COLOR PARA LCP INSTANTÂNEO */
+        /* HERO */
         .hero{position:relative;min-height:100vh;display:flex;align-items:center;margin-top:70px;color:#fff;padding:60px 0;background-color:#1a1a1a;}
         .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
         .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,rgba(0,0,0,0.95)0%,rgba(0,0,0,0.6)100%);z-index:1;}
@@ -58,11 +58,23 @@
         .service-card{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
         .service-image img{width:100%;height:160px;object-fit:cover;border-radius:6px;}
         
+        /* CONTATO */
+        .contact-section{padding:60px 0;background:#fff;}
+        .contact-container{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+        @media(max-width:768px){.contact-container{grid-template-columns:1fr;}}
+        .contact-info{background:#f8f9fa;padding:30px;border-radius:8px;}
+        .contact-item{display:flex;align-items:center;gap:15px;margin-bottom:20px;}
+        .contact-item i{width:40px;height:40px;background:rgba(245,126,24,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#F57E18;}
+        .contact-item a,.contact-item span{color:#1D1D1D;text-decoration:none;}
+        .contact-map{height:300px;border-radius:8px;overflow:hidden;background:#f0f0f0;}
+        .contact-map iframe{width:100%;height:100%;border:none;}
+        
         /* WHATSAPP */
         .whatsapp-float{position:fixed;bottom:20px;right:20px;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;z-index:999;}
         
         /* ACESSIBILIDADE */
         a:focus,button:focus{outline:3px solid #F57E18;outline-offset:2px;}
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;}
     </style>
     
     <!-- FONTES -->
@@ -101,9 +113,8 @@
     </header>
 
     <main>
-        <!-- HERO COM LCP OTIMIZADO -->
+        <!-- HERO -->
         <section class="hero" id="inicio">
-            <!-- IMAGEM CARREGA INSTANTANEAMENTE (PRELOAD NO CSS) -->
             <img class="hero-bg" src="https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp" alt="Máquinas HS Terraplanagem em ação" width="1200" height="800" fetchpriority="high" decoding="sync">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
@@ -122,7 +133,7 @@
             </div>
         </section>
 
-        <!-- SERVIÇOS (CARREGAMENTO LAZY) -->
+        <!-- SERVIÇOS -->
         <section class="services" id="servicos">
             <div class="container">
                 <h2 class="section-title" style="text-align:center; margin-bottom:30px;">Nossos Serviços</h2>
@@ -130,18 +141,52 @@
             </div>
         </section>
 
-        <!-- CONTATO RÁPIDO -->
-        <section class="services" id="contato" style="background:#fff;">
-            <div class="container" style="text-align:center;">
-                <h2 class="section-title">Contato</h2>
-                <p style="margin-bottom:15px;"><strong>WhatsApp:</strong> <a href="https://wa.me/555496968164" style="color:#F57E18; text-decoration:none;">(54) 9696-8164</a></p>
-                <p><strong>Email:</strong> <a href="mailto:heliosolva26480@gmail.com" style="color:#F57E18; text-decoration:none;">heliosolva26480@gmail.com</a></p>
+        <!-- CONTATO COM MAPA (CARREGAMENTO LAZY) -->
+        <section class="contact-section" id="contato">
+            <div class="container">
+                <h2 class="section-title" style="text-align:center; margin-bottom:40px;">Entre em Contato</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                            <a href="https://wa.me/555496968164" target="_blank">(54) 9696-8164</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto:heliosolva26480@gmail.com">heliosolva26480@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Avenida São Paulo, 1818 - Jardim Europa<br>Toledo - PR, 85929-000</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <span>Segunda a Sexta: 07:00 às 18:00</span>
+                        </div>
+                        <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento" class="btn btn-primary" style="display:block; text-align:center; margin-top:20px;" target="_blank">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar orçamento
+                        </a>
+                    </div>
+                    <div class="contact-map">
+                        <!-- Iframe com lazy loading nativo -->
+                        <iframe src="" 
+                                data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115759.28563421264!2d-53.81940572265626!3d-24.7245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f3b4e8b0e8e0e1%3A0x0!2zMjTCsDQzJzI4LjIiUyA1M8KwNDQnMzUuNSJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+                                title="Localização da HS Terraplanagem em Toledo-PR"
+                                loading="lazy"
+                                style="width:100%; height:100%; border:none;"
+                                allowfullscreen="">
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer style="background:#1D1D1D; color:#fff; padding:30px 0; text-align:center;">
-        <div class="container">HS Terraplanagem © 2026</div>
+        <div class="container">
+            <p style="margin-bottom:10px;">HS Terraplanagem - Toledo/PR</p>
+            <p>&copy; 2026 HS Terraplanagem. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <a href="https://wa.me/555496968164" class="whatsapp-float" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -151,31 +196,94 @@
         (function(){
             // Menu mobile
             const t=document.getElementById('menuToggle'),m=document.getElementById('mobileMenu');
-            t?.addEventListener('click',()=>{t.classList.toggle('active');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'';});
+            if(t&&m){
+                t.addEventListener('click',()=>{
+                    t.classList.toggle('active');
+                    m.classList.toggle('active');
+                    document.body.style.overflow=m.classList.contains('active')?'hidden':'';
+                });
+                
+                // Fechar menu ao clicar em link
+                m.querySelectorAll('a').forEach(l=>{
+                    l.addEventListener('click',()=>{
+                        t.classList.remove('active');
+                        m.classList.remove('active');
+                        document.body.style.overflow='';
+                    });
+                });
+            }
             
             // Carregar serviços
             const loadServices=()=>{
                 const g=document.getElementById('servicesGrid');if(!g)return;
-                g.innerHTML=[
-                    {i:'destacamento-eucalipto.webp',t:'Destacamento de Eucalipto',d:'Remoção profissional de eucaliptos'},
-                    {i:'curva-niveis.webp',t:'Curva de Níveis',d:'Conservação do solo'},
-                    {i:'abertura-acudes.webp',t:'Abertura de Açudes',d:'Reservatórios para irrigação'},
-                    {i:'estradas-rurais.webp',t:'Estradas Rurais',d:'Abertura e manutenção'},
-                    {i:'aviario-chiqueirao.webp',t:'Aviário/Chiqueirão',d:'Preparo de terreno'},
-                    {i:'servicos-complementares.webp',t:'Serviços Complementares',d:'Aterramento e nivelamento'}
-                ].map(s=>`
+                const services=[
+                    {img:'destacamento-eucalipto.webp', titulo:'Destacamento de Eucalipto', desc:'Remoção profissional de eucaliptos com maquinário especializado.'},
+                    {img:'curva-niveis.webp', titulo:'Curva de Níveis', desc:'Implementação de curvas de nível para conservação do solo.'},
+                    {img:'abertura-acudes.webp', titulo:'Abertura de Açudes', desc:'Construção de reservatórios de água para irrigação.'},
+                    {img:'estradas-rurais.webp', titulo:'Estradas Rurais', desc:'Abertura e manutenção de estradas vicinais.'},
+                    {img:'aviario-chiqueirao.webp', titulo:'Aviário e Chiqueirão', desc:'Preparo de terreno para construções rurais.'},
+                    {img:'servicos-complementares.webp', titulo:'Serviços Complementares', desc:'Aterramento, nivelamento e perfuração.'},
+                    {img:'nivelamento-morro.webp', titulo:'Nivelamento de Morro', desc:'Corte e aterro para nivelamento de terrenos.'}
+                ];
+                
+                g.innerHTML=services.map(s=>`
                     <div class="service-card">
-                        <div class="service-image"><img src="https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/${s.i}" alt="${s.t}" loading="lazy" width="400" height="225"></div>
-                        <h3 style="margin:10px 0;">${s.t}</h3>
-                        <p style="margin-bottom:15px;">${s.d}</p>
-                        <a href="https://wa.me/555496968164?text=Orçamento%20${encodeURIComponent(s.t)}" class="btn btn-primary" style="display:block; text-align:center;">Solicitar</a>
+                        <div class="service-image">
+                            <img src="https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/${s.img}" 
+                                 alt="${s.titulo}" 
+                                 loading="lazy" 
+                                 width="400" 
+                                 height="225">
+                        </div>
+                        <h3 style="margin:10px 0;">${s.titulo}</h3>
+                        <p style="margin-bottom:15px; color:#4a5568;">${s.desc}</p>
+                        <a href="https://wa.me/555496968164?text=Orçamento%20${encodeURIComponent(s.titulo)}" 
+                           class="btn btn-primary" 
+                           style="display:block; text-align:center;" 
+                           target="_blank">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar
+                        </a>
                     </div>
                 `).join('');
             };
             
             // Observer para serviços
-            const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){loadServices();observer.disconnect();}});},{threshold:.1});
-            document.getElementById('servicos')&&observer.observe(document.getElementById('servicos'));
+            const servicesSection=document.getElementById('servicos');
+            if(servicesSection){
+                const observer=new IntersectionObserver(e=>{
+                    e.forEach(e=>{if(e.isIntersecting){loadServices();observer.disconnect();}});
+                },{threshold:0.1});
+                observer.observe(servicesSection);
+            }
+            
+            // Carregar mapa quando visível
+            const iframe=document.querySelector('.contact-map iframe');
+            if(iframe){
+                const mapObserver=new IntersectionObserver(e=>{
+                    e.forEach(e=>{
+                        if(e.isIntersecting){
+                            iframe.src=iframe.dataset.src;
+                            mapObserver.disconnect();
+                        }
+                    });
+                },{threshold:0.1});
+                mapObserver.observe(iframe);
+            }
+            
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+                anchor.addEventListener('click',function(e){
+                    e.preventDefault();
+                    const target=document.querySelector(this.getAttribute('href'));
+                    if(target) target.scrollIntoView({behavior:'smooth'});
+                });
+            });
+            
+            // Header scroll
+            const header=document.querySelector('.header');
+            window.addEventListener('scroll',()=>{
+                header.style.background=window.scrollY>50?'rgba(255,255,255,0.98)':'#fff';
+            });
         })();
     </script>
 </body>
