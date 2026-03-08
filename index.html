@@ -102,28 +102,271 @@
 
     <main>
         <!-- HERO -->
-        <section class="hero" id="inicio" aria-labelledby="hero-title">
-            <div class="hero-bg-pattern" aria-hidden="true"></div>
-            <div class="container hero-content">
-                <span class="hero-badge">Excelência em Terraplanagem</span>
-                <h1 id="hero-title">Terraplanagem <span>em Toledo</span></h1>
-                <p>Mais de 15 anos de experiência em terraplanagem, com soluções completas para sua propriedade rural ou construção em Toledo e região.</p>
-                <div class="hero-cta">
-                    <a href="#contato" class="btn btn-primary" aria-label="Solicitar orçamento via WhatsApp">Solicitar orçamento</a>
-                    <a href="#servicos" class="btn btn-outline">Conheça nossos serviços</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Anos de experiência</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Projetos realizados</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Clientes satisfeitos</span>
+        <!-- HERO -->
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+    <!-- Imagem de fundo (substitua o URL pela sua imagem) -->
+    <div class="hero-background" style="background-image: url('https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp');"></div>
+    <!-- Gradiente escuro sobre a imagem -->
+    <div class="hero-overlay"></div>
+    
+    <div class="container hero-content">
+        <span class="hero-badge">Excelência em Terraplanagem</span>
+        <h1 id="hero-title">Terraplanagem <span>em Toledo</span></h1>
+        <p>Mais de 15 anos de experiência em terraplanagem, com soluções completas para sua propriedade rural ou construção em Toledo e região.</p>
+        <div class="hero-cta">
+            <a href="#contato" class="btn btn-primary" aria-label="Solicitar orçamento via WhatsApp">Solicitar orçamento</a>
+            <a href="#servicos" class="btn btn-outline">Conheça nossos serviços</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Anos de experiência</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Projetos realizados</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Clientes satisfeitos</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* ===== HERO SECTION CORRIGIDA ===== */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 100px 0;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+/* Imagem de fundo */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Gradiente escuro para contraste do texto */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 650px;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(245, 126, 24, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+    border: 1px solid rgba(245, 126, 24, 0.3);
+    color: #F57E18;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 span {
+    color: #F57E18;
+    position: relative;
+    display: inline-block;
+}
+
+.hero p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 600px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+}
+
+.hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 640px) {
+    .hero-cta {
+        flex-direction: row;
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: #F57E18;
+    color: white;
+    border: 2px solid #F57E18;
+}
+
+.btn-primary:hover {
+    background: #e06b0c;
+    border-color: #e06b0c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 126, 24, 0.4);
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    backdrop-filter: blur(5px);
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #1D1D1D;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 500px;
+}
+
+.stat-item {
+    text-align: left;
+}
+
+.stat-number {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: #F57E18;
+    line-height: 1.2;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 90vh;
+        padding: 80px 0;
+    }
+    
+    .hero-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        text-align: left;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-stats {
+        gap: 10px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 85vh;
+        padding: 60px 0;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .stat-number {
+        min-width: 60px;
+    }
+}
+</style>
                     </div>
                 </div>
             </div>
