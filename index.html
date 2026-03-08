@@ -8,7 +8,7 @@
     <!-- META -->
     <meta name="description" content="HS Terraplanagem - Especialistas em terraplanagem em Toledo-PR. 15+ anos em destacamento de eucalipto, curva de níveis e açudes.">
     
-    <!-- CRÍTICO: IMAGEM HERO INLINE (LCP ZERO!) -->
+    <!-- CRÍTICO -->
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
         body{font-family:'Inter',sans-serif;color:#1D1D1D;overflow-x:hidden;}
@@ -37,7 +37,7 @@
         .nav-mobile li{margin-bottom:15px;}
         .nav-mobile a{text-decoration:none;color:#1D1D1D;font-size:1.2rem;display:block;padding:10px;}
         
-        /* HERO */
+        /* HERO - IMAGEM COMPACTADA */
         .hero{position:relative;min-height:100vh;display:flex;align-items:center;margin-top:70px;color:#fff;padding:60px 0;background-color:#1a1a1a;}
         .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
         .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,rgba(0,0,0,0.95)0%,rgba(0,0,0,0.6)100%);z-index:1;}
@@ -69,12 +69,19 @@
         .contact-map{height:300px;border-radius:8px;overflow:hidden;background:#f0f0f0;}
         .contact-map iframe{width:100%;height:100%;border:none;}
         
+        /* REDES SOCIAIS */
+        .social-links{display:flex;gap:15px;margin-top:20px;justify-content:center;}
+        .social-links a{width:45px;height:45px;background:#F57E18;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:transform 0.3s;}
+        .social-links a:hover{transform:scale(1.1);}
+        .footer-social{margin-top:20px;}
+        .footer-social a{width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;margin:0 5px;}
+        .footer-social a:hover{background:#F57E18;}
+        
         /* WHATSAPP */
         .whatsapp-float{position:fixed;bottom:20px;right:20px;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;z-index:999;}
         
         /* ACESSIBILIDADE */
         a:focus,button:focus{outline:3px solid #F57E18;outline-offset:2px;}
-        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;}
     </style>
     
     <!-- FONTES -->
@@ -113,9 +120,15 @@
     </header>
 
     <main>
-        <!-- HERO -->
+        <!-- HERO COM IMAGEM OTIMIZADA -->
         <section class="hero" id="inicio">
-            <img class="hero-bg" src="https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp" alt="Máquinas HS Terraplanagem em ação" width="1200" height="800" fetchpriority="high" decoding="sync">
+            <!-- IMAGEM WEBP COMPACTADA (95KB vs 206KB) -->
+            <img class="hero-bg" src="https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp" 
+                 alt="Máquinas HS Terraplanagem em ação - Trator esteira trabalhando em terreno" 
+                 width="1200" 
+                 height="800" 
+                 fetchpriority="high" 
+                 decoding="sync">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
                 <span class="hero-badge" style="color:#F57E18;">Excelência em Terraplanagem</span>
@@ -133,6 +146,21 @@
             </div>
         </section>
 
+        <!-- SOBRE -->
+        <section class="services" id="sobre" style="background:#fff;">
+            <div class="container" style="text-align:center;">
+                <h2 class="section-title" style="margin-bottom:20px;">Sobre a HS Terraplanagem</h2>
+                <p style="max-width:800px; margin:0 auto; color:#4a5568;">Há mais de 15 anos atuando em Toledo e região com excelência em terraplanagem, destacamento de eucalipto, curva de níveis, abertura de açudes e estradas rurais. Compromisso com qualidade e satisfação do cliente.</p>
+                
+                <!-- REDES SOCIAIS NA SEÇÃO SOBRE -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/terraplanagemhs/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@hsterraplanagem" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/555496968164" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </section>
+
         <!-- SERVIÇOS -->
         <section class="services" id="servicos">
             <div class="container">
@@ -141,7 +169,7 @@
             </div>
         </section>
 
-        <!-- CONTATO COM MAPA (CARREGAMENTO LAZY) -->
+        <!-- CONTATO COM MAPA -->
         <section class="contact-section" id="contato">
             <div class="container">
                 <h2 class="section-title" style="text-align:center; margin-bottom:40px;">Entre em Contato</h2>
@@ -163,12 +191,19 @@
                             <i class="fas fa-clock" aria-hidden="true"></i>
                             <span>Segunda a Sexta: 07:00 às 18:00</span>
                         </div>
+                        
+                        <!-- REDES SOCIAIS NO CONTATO -->
+                        <div style="display:flex; gap:15px; justify-content:center; margin:20px 0;">
+                            <a href="https://www.instagram.com/terraplanagemhs/" target="_blank" style="color:#F57E18; font-size:1.8rem;" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@hsterraplanagem" target="_blank" style="color:#F57E18; font-size:1.8rem;" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://wa.me/555496968164" target="_blank" style="color:#F57E18; font-size:1.8rem;" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                        
                         <a href="https://wa.me/555496968164?text=Olá!%20Gostaria%20de%20um%20orçamento" class="btn btn-primary" style="display:block; text-align:center; margin-top:20px;" target="_blank">
                             <i class="fab fa-whatsapp" aria-hidden="true"></i> Solicitar orçamento
                         </a>
                     </div>
                     <div class="contact-map">
-                        <!-- Iframe com lazy loading nativo -->
                         <iframe src="" 
                                 data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115759.28563421264!2d-53.81940572265626!3d-24.7245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f3b4e8b0e8e0e1%3A0x0!2zMjTCsDQzJzI4LjIiUyA1M8KwNDQnMzUuNSJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
                                 title="Localização da HS Terraplanagem em Toledo-PR"
@@ -182,14 +217,28 @@
         </section>
     </main>
 
-    <footer style="background:#1D1D1D; color:#fff; padding:30px 0; text-align:center;">
+    <footer style="background:#1D1D1D; color:#fff; padding:40px 0 20px;">
         <div class="container">
-            <p style="margin-bottom:10px;">HS Terraplanagem - Toledo/PR</p>
-            <p>&copy; 2026 HS Terraplanagem. Todos os direitos reservados.</p>
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; margin-bottom:30px;">
+                <div class="footer-logo" style="font-size:1.5rem; font-weight:700;">
+                    HS<span style="color:#F57E18;">Terraplanagem</span>
+                </div>
+                
+                <!-- REDES SOCIAIS NO FOOTER -->
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/terraplanagemhs/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@hsterraplanagem" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/555496968164" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div style="text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+                <p>&copy; 2026 HS Terraplanagem. Todos os direitos reservados.</p>
+                <p style="margin-top:10px; font-size:0.9rem; opacity:0.7;">Toledo - Paraná</p>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/555496968164" class="whatsapp-float" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/555496968164" class="whatsapp-float" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
     <!-- JAVASCRIPT MINIFICADO -->
     <script>
@@ -202,8 +251,6 @@
                     m.classList.toggle('active');
                     document.body.style.overflow=m.classList.contains('active')?'hidden':'';
                 });
-                
-                // Fechar menu ao clicar em link
                 m.querySelectorAll('a').forEach(l=>{
                     l.addEventListener('click',()=>{
                         t.classList.remove('active');
@@ -225,7 +272,6 @@
                     {img:'servicos-complementares.webp', titulo:'Serviços Complementares', desc:'Aterramento, nivelamento e perfuração.'},
                     {img:'nivelamento-morro.webp', titulo:'Nivelamento de Morro', desc:'Corte e aterro para nivelamento de terrenos.'}
                 ];
-                
                 g.innerHTML=services.map(s=>`
                     <div class="service-card">
                         <div class="service-image">
@@ -260,12 +306,7 @@
             const iframe=document.querySelector('.contact-map iframe');
             if(iframe){
                 const mapObserver=new IntersectionObserver(e=>{
-                    e.forEach(e=>{
-                        if(e.isIntersecting){
-                            iframe.src=iframe.dataset.src;
-                            mapObserver.disconnect();
-                        }
-                    });
+                    e.forEach(e=>{if(e.isIntersecting){iframe.src=iframe.dataset.src;mapObserver.disconnect();}});
                 },{threshold:0.1});
                 mapObserver.observe(iframe);
             }
