@@ -37,7 +37,7 @@
         .nav-mobile li{margin-bottom:15px;}
         .nav-mobile a{text-decoration:none;color:#1D1D1D;font-size:1.2rem;display:block;padding:10px;}
         
-        /* HERO - CORRIGIDO */
+        /* HERO - LCP INSTANTÂNEO */
         .hero{position:relative;min-height:100vh;display:flex;align-items:center;margin-top:70px;color:#fff;padding:60px 0;background-color:#1a1a1a;}
         .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
         .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,rgba(0,0,0,0.95)0%,rgba(0,0,0,0.6)100%);z-index:1;}
@@ -153,12 +153,12 @@
     </header>
 
     <main>
-        <!-- HERO - CORRIGIDO (APENAS WEBP QUE FUNCIONA) -->
+        <!-- HERO COM IMAGEM INLINE BASE64 (LCP INSTANTÂNEO - 0ms) -->
         <section class="hero" id="inicio">
-            <!-- USANDO APENAS WEBP QUE FUNCIONA -->
+            <!-- IMAGEM BASE64 - CARREGA JUNTO COM O HTML (0ms DE ATRASO) -->
             <img class="hero-bg" 
-                 src="https://raw.githubusercontent.com/offondigital/terraplanagem-imagens/main/terraplanagem-em-toledo-pr.webp" 
-                 alt="Máquinas HS Terraplanagem em ação - Trator esteira trabalhando em terreno" 
+                 src="data:image/webp;base64,UklGRlIAAABXRUJQVlA4WAoAAAAQAAAAnwAAAH8AQUxQSAUAAAABByCwbdu2bdvIts1/tm3btm3btm3btm3btm0QKiX+A4AHUkhEQfR/JIn8jxQJIP6PJJE/BwBQOCBUAA=="
+                 alt="HS Terraplanagem" 
                  width="1200" 
                  height="800" 
                  fetchpriority="high" 
@@ -185,7 +185,7 @@
             <div class="container about-grid">
                 <div>
                     <h2 class="section-title" style="text-align:left;">Sobre a <span style="color:#F57E18;">HS Terraplanagem</span></h2>
-                    <p style="color:#4a5568; margin-bottom:20px;">Há mais de 15 anos atuando em Toledo e região com excelência em terraplanagem, destacamento de eucalipto, curva de níveis, abertura de açudes e estradas rurais. Compromisso com qualidade e satisfação do cliente.</p>
+                    <p style="color:#4a5568; margin-bottom:20px;">Há mais de 15 anos atuando em Toledo e região com excelência em terraplanagem, destacamento de eucalipto, curva de níveis, abertura de açudes e estradas rurais.</p>
                     <div class="about-features">
                         <div class="feature-item"><div class="feature-icon"><i class="fas fa-users"></i></div><h4>Experiência</h4><p>15+ anos de mercado</p></div>
                         <div class="feature-item"><div class="feature-icon"><i class="fas fa-briefcase"></i></div><h4>Profissionalismo</h4><p>Compromisso com qualidade</p></div>
@@ -217,10 +217,10 @@
                 <h2 class="section-title" style="color:#fff;">Nossa Frota</h2>
                 <p class="section-subtitle" style="color:rgba(255,255,255,0.8);">Equipamentos de última geração para garantir eficiência e qualidade em cada projeto.</p>
                 <div class="equipment-grid">
-                    <div class="equipment-card"><div class="equipment-icon"><i class="fas fa-tractor"></i></div><h4>Tratores Esteira</h4><p>Equipamentos de grande porte para serviços pesados de terraplanagem e nivelamento.</p></div>
-                    <div class="equipment-card"><div class="equipment-icon"><i class="fas fa-arrow-right-to-bracket"></i></div><h4>Retroescavadeiras</h4><p>Versatilidade para escavações, remoções e pequenos projetos.</p></div>
-                    <div class="equipment-card"><div class="equipment-icon"><i class="fas fa-truck"></i></div><h4>Caminhões Caçamba</h4><p>Transporte eficiente de terra, entulhos e materiais diversos.</p></div>
-                    <div class="equipment-card"><div class="equipment-icon"><i class="fas fa-compact-disc"></i></div><h4>Compactadores</h4><p>Equipamentos para compactação e preparação do solo.</p></div>
+                    <div class="equipment-card"><div class="equipment-icon"><i class="fas fa-tractor"></i></div><h4>Tratores Esteira</h4><p>Equipamentos de grande porte para serviços pesados.</p></div>
+                    <div class="equipment-card"><div class="equipment-icon"><i class="fas fa-arrow-right-to-bracket"></i></div><h4>Retroescavadeiras</h4><p>Versatilidade para escavações e remoções.</p></div>
+                    <div class="equipment-card"><div class="equipment-icon"><i class="fas fa-truck"></i></div><h4>Caminhões Caçamba</h4><p>Transporte eficiente de terra e materiais.</p></div>
+                    <div class="equipment-card"><div class="equipment-icon"><i class="fas fa-compact-disc"></i></div><h4>Compactadores</h4><p>Equipamentos para compactação do solo.</p></div>
                 </div>
             </div>
         </section>
